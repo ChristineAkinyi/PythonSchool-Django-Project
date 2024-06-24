@@ -7,16 +7,16 @@ class Student(models.Model):
     last_name = models.CharField(max_length=20)
     email = models.EmailField()
     code = models.PositiveSmallIntegerField()
-    age = models.CharField(max_length=3)
-    phone_number = models.PositiveSmallIntegerField()
     date_of_birth = models.DateField()
     country = models.CharField(max_length=20)
     bio = models.TextField()
+    guardian = models.CharField(max_length=255, default='Unknown')
+    gender = models.CharField(max_length=255, default='Unknown')    
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     
 
-    
+ 
 
    
 
