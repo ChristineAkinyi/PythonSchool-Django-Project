@@ -3,14 +3,13 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from student.models import Student
-from classperiod.models import Classperiod
-from course.models import Course
-from teacher.models import Teacher
 from .serializers import StudentSerializer
-from .serializers import TeacherSerializer
+from course.models import Course
 from .serializers import CourseSerializer
-from .serializers import ClassPeriodSerializer
-
+from teacher.models import Teacher
+from .serializers import TeacherSerializer
+from classperiod.models import Classperiod
+from .serializers import ClassperiodSerializer
 
 class StudentListView(APIView):
     def get(self,request):
@@ -26,14 +25,14 @@ class TeacherListView(APIView):
 
 class CourseListView(APIView):
     def get(self, request):
-        courses = Course.objects.all()
-        serializer = CourseSerializer(courses, many=True)
+        course = Course.objects.all()
+        serializer = CourseSerializer(Course, many=True)
         return Response(serializer.data)
 
-class ClassperiodListView(APIView):
+class ClassPeriodListView(APIView):
     def get(self, request):
-         classperiods = ClassPeriod.objects.all()
-         serializer = ClassPeriodSerializer(classperiods, many=True)
+         classperiod = Classperiod.objects.all()
+         serializer = ClassperiodSerializer(Classperiod, many=True)
          return Response(serializer.data)
 
 
