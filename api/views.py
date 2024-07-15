@@ -35,7 +35,3 @@ class ClassPeriodListView(APIView):
          serializer = ClassperiodSerializer(Classperiod, many=True)
          return Response(serializer.data)
 
-
-
-
-# Create your views here.
