@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -11,7 +12,7 @@ class Classperiod(models.Model):
     total_students = models.PositiveIntegerField()
     trainer_name = models.CharField(max_length=30)
     trainers_assistant_name = models.CharField(max_length=30)
-    number_of_hours = models.DurationField()
+    number_of_hours = models.PositiveIntegerField()
 
     def __str__(self):
         return f"{self.classroom}"

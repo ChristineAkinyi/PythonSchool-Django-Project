@@ -12,7 +12,8 @@ class Student(models.Model):
     country = models.CharField(max_length=20)
     bio = models.TextField()
     guardian = models.CharField(max_length=255, default='Unknown')
-    gender = models.CharField(max_length=255, default='Unknown')    
+    gender = models.CharField(max_length=255, default='Unknown')  
+
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     

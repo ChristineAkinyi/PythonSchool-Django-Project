@@ -1,15 +1,15 @@
-# from rest_framework import se/rializers
-
 from rest_framework import serializers
 from student.models import Student
-# from class.models import Class
 from classperiod.models import Classperiod
 from teacher.models import Teacher
 from course.models import Course
+from schoolclass.models import Schoolclass
 
 
-
-
+class SchoolclassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model =Schoolclass
+        fields= "__all__"
 
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
