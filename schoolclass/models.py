@@ -1,5 +1,5 @@
 from django.db import models
-from student.models import Student;
+# from student.models import Student;
 
 class Schoolclass(models.Model):
     student_id = models.ForeignKey('student.Student', on_delete=models.CASCADE, default=1)
