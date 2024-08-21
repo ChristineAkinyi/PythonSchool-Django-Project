@@ -12,9 +12,13 @@ from .views import WeeklyTimetableView
 
 
 urlpatterns = [
-    path("student/", StudentListView.as_view(), name="student_list_view"),
-    path("classperiod/", ClassperiodListView.as_view(), name="classperiod_list_view"),
-    path("schoolclass/",SchoolclassListView.as_view(),name="schoolclass_list_view"),
+    path("Student/", StudentListView.as_view(), name="student_list_view"),
+    path('api/Student/', StudentListView.as_view(), name='student_list_view'),
+
+    
+    path("Classperiod/", ClassperiodListView.as_view(), name="classperiod_list_view"),
+    path("Classperiod/<int:id>/", ClassperiodDetailView.as_view(), name="classperiod_detail_view"),
+    
     path("course/", CourseListView.as_view(), name="course_list_view"),
     path("teacher/", TeacherListView.as_view(), name="teacher_list_view"),
     path("student/<int:id>/", StudentDetailView.as_view(), name="Student_detail_view"),

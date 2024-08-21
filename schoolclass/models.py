@@ -1,24 +1,16 @@
 from django.db import models
-# from student.models import Student;
+# from course.models import Course
 
 class Schoolclass(models.Model):
-    student_id = models.ForeignKey('student.Student', on_delete=models.CASCADE, default=1)
-    # classroom_number = models.PositiveSmallIntegerField()
-    classroom_trainer_name = models.CharField(max_length=20)
-    classroom_location = models.CharField(max_length=20)
-    classroom_capacity = models.PositiveSmallIntegerField()
-    classroom_level = models.CharField(max_length=20)
-    classroom_name = models.CharField(max_length=15)
-    classroom_days = models.PositiveSmallIntegerField()
-    classroom_student_names = models.TextField()
-    classroom_course = models.CharField(max_length=25)
+    class_rep = models.ForeignKey('student.Student', on_delete=models.SET_NULL, null=True, blank=True, related_name='represented_classes')
+    classroom_number = models.PositiveSmallIntegerField(default=1)
+    classroom_location = models.CharField(max_length=100, default='Unknown Location')
+    class_capacity = models.PositiveSmallIntegerField(default=0)
+    class_code = models.AutoField(primary_key=True)
+    classroom_level = models.CharField(max_length=20, default='General')
+    class_names = models.CharField(max_length=100, default='Unnamed Class')
+    classroom_days = models.PositiveSmallIntegerField(default=0)
+    # class_course = models.ForeignKey('course.Course', on_delete=models.SET_NULL, null=True, blank=True, related_name='classes')
+
     def __str__(self):
-        return f"{self.classroom_name}"
-
-
-
-
-
-
-
-
+        return self.classroom_number

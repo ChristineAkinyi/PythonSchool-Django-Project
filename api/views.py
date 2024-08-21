@@ -227,7 +227,7 @@ class ClassperiodDetailView(APIView):
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         
-class WeeklyTimetableView(APIView):
+class WeeklyTimetable(APIView):
     def get(self, request):
         class_periods = Classperiod.objects.all()
         serializer = ClassperiodSerializer(class_periods, many=True)
