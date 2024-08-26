@@ -6,9 +6,7 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
-
     dependencies = [
         ('schoolclass', '0001_initial'),
     ]
@@ -27,7 +25,7 @@ class Migration(migrations.Migration):
                 ('bio', models.TextField(default='No bio provided')),
                 ('guardian_name', models.CharField(default='Guardian Name', max_length=255)),
                 ('gender', models.CharField(default='Not Specified', max_length=30)),
-                ('class_enrolled', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='students', to='schoolclass.schoolclass')),
+                # ('class_enrolled', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='students', to='schoolclass.schoolclass')),
             ],
         ),
     ]

@@ -1,8 +1,9 @@
 from django.shortcuts import render
+# from forms import StudentRegistrationForm
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import CourseSerializer, SchoolclassSerializer, StudentSerializer, TeacherSerializer, ClassperiodSerializer
+from .serializers import CourseSerializer, SchoolclassSerializer, StudentSerializer, TeacherSerializer, ClassperiodSerializer, MinimalClassperiodSerializer, MinimalStudentSerializer, MinimalSchoolclassSerializer, MinimalCourseSerializer, MinimalTeacherSerializer
 from classperiod.models import ClassPeriod
 from course.models import Course
 from student.models import Student
@@ -126,13 +127,6 @@ class TeacherDetailView(APIView):
         teacher.delete()
         return Response(status=status.HTTP_202_ACCEPTED)
     
-    # def assign_course(self, teacher, course_id):
-    #     course = Course.objects.get(id=course_id)
-    #     teacher.courses.add(course)
-    # def assign_class(self, teacher, class_id):
-    #     student_class = Student_Class.objects.get(id=class_id)
-    #     student_class.teacher = teacher
-    #     student_class.save()
     def post(self, request, id):
         teacher = Teacher.objects.get(id=id)
         action = request.data.get("action")
